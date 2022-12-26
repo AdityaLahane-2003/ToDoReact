@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 
 function ToDoItem(props) {
-  const [isLine, setLine] = useState(false);
-  function lineThrough() {
-    setLine((prev) => {
-      return !prev;
-    });
-  }
-  const add = props.item;
+  // const [isLine, setLine] = useState(false);
+  // function lineThrough() {
+  //   setLine((prev) => {
+  //     return !prev;
+  //   });
+  // }
+  // const add = props.item;
   return (
-    <div>
-      <ul>
-        {add.map((element) => (
-          <li
-            onClick={lineThrough}
-            style={{ textDecoration: isLine && "line-through" }}
+           <li
+            // onClick={lineThrough}
+            onClick={()=>{
+              props.onChecked(props.id)
+            }}
+            // style={{ textDecoration: isLine && "line-through" }}
           >
-            {element}
+            {props.item}
           </li>
-        ))}
-      </ul>
-    </div>
   );
 }
 
